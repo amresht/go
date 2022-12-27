@@ -4,7 +4,6 @@
     "DEBUG_MODE"    :   "ON",
     "ENV_TAG"       :   "PROD",
 
-
     "DATABASE"      : {
             "DB_USERNAME"      :       "appuser_prod",
             "DB_PASSWORD"      :       "dont_save_here",
