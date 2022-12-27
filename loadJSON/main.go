@@ -19,54 +19,20 @@ func main() {
 
 	varConfig := MyLoadJSON()
 
-	fmt.Println("Apps Log path:" + varConfig.AppLogPath)
+	fmt.Println("Apps Log path:     " + varConfig.AppLogPath)
+	fmt.Println("DB Username:       " + varConfig.MySQLDBConn.DbUsername)
+	fmt.Println("Cloud API Binary:  " + varConfig.MachineConfig.CloudAPIBin) 
+	
+	for i:=0; i< len(varConfig.CloudProviders) ; i++ {
+		fmt.Println("NAME:            " + varConfig.CloudProviders[i].Name)
+	  fmt.Println("Resource Group:    " + varConfig.CloudProviders[i].ResourceGroup)
+	}
+	
+	for j:=0; j< len(varConfig.Consumers) ; j++ {
+		fmt.Print("Consumer:            " + varConfig.Consumers[j] + ", ")
+	}
+	
 	return
-	/*
-		cfg := mysql.Config{
-			User:                 "root", //os.Getenv("DBUSER"),
-			Passwd:               "",     //os.Getenv("DBPASS"),
-			Net:                  "tcp",
-			Addr:                 "localhost:3306",
-			DBName:               "recordings",
-			AllowNativePasswords: true,
-		}
-		// Get a database handle.
-		var err error
-		db, err = sql.Open("mysql", cfg.FormatDSN())
-		if err != nil {
-			fmt.Println("Connection error")
-			log.Fatal(err)
-		}
-
-		pingErr := db.Ping()
-		if pingErr != nil {
-			log.Fatal(pingErr)
-		}
-		fmt.Println("Connected!")
-
-		albums, err := albumsByArtist("John Coltrane")
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("Albums found: %v\n", albums)
-
-		// Hard-code ID 2 here to test the query.
-		alb, err := albumByID(4)
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("Album found: %v\n", alb)
-
-		albID, err := addAlbum(Album{
-			Title:  "The Modern Sound of Betty Carter",
-			Artist: "Betty Carter",
-			Price:  49.99,
-		})
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("ID of added album: %v\n", albID)
-	*/
 }
 
 // albumsByArtist queries for albums that have the specified artist name.
