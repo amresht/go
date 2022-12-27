@@ -1,0 +1,53 @@
+{
+    "APP_LOGPATH"   :   "/var/log/appLogPath",
+    "ERR_LOGPATH"   :   "/var/log/errLogPath",
+    "DEBUG_MODE"    :   "ON",
+    "ENV_TAG"       :   "PROD",
+
+
+    "DATABASE"      : {
+            "DB_USERNAME"      :       "appuser_prod",
+            "DB_PASSWORD"      :       "dont_save_here",
+            "DB_TIMEOUT"       :       "1000",
+            "DB_SERVER_FQDN"   :       "mariadb.mydomain.net",
+            "DB_SERVER_IP"     :       "10.234.10.32"
+    },
+
+    "CLOUD_PROVIDERS" : [
+        {
+            "VALID"             :       "Yes",
+            "NAME"              :       "AWS",
+            "START_TIME"        :       17,
+            "END_TIME"          :       5,
+            "RESOURCE_GROUP"    :       "Cloud_AWS",
+            "MACHINE_CONFIG"        : {
+                "CLOUD_API_BIN"     :       "/usr/local/aws/bin",
+                "INSTANCE_TYPE"     :       "m5.4xlarge",
+                "COUNTRY"           :       "INDIA",
+                "REGION"            :       "Hyderabad"
+            }
+        },
+        {
+            "VALID"             :       "Yes",
+            "NAME"              :       "GCP",
+            "START_TIME"        :       17,
+            "END_TIME"          :       5,
+            "RESOURCE_GROUP"    :       "Cloud_GCP",
+            "MACHINE_CONFIG"        : {
+                "CLOUD_API_BIN"     :       "/usr/local/gcp/bin",
+                "INSTANCE_TYPE"     :       "n1-standard-1",
+                "COUNTRY"           :       "INDIA",
+                "REGION"            :       "Mumbai"
+            }
+        }        
+    ],
+
+    "CONSUMERS" : [
+        "api.hris.mydomain.com",
+        "api.frx.mydomain.com",
+        "api.trx.mydomain.com",
+        "api.bjy.mydomain.com",
+        "api.web.mydomain.com",
+        "api.oop.mydomain.com"
+    ]
+}
