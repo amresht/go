@@ -1,5 +1,8 @@
 package main
-
+/*
+@author				amresht
+@description		this is the main module for the Loading JSON text as defined in the conf.json
+*/
 import (
 	"encoding/json"
 	"fmt"
